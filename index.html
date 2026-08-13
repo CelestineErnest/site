@@ -40,11 +40,11 @@
 
         /* Style pour l'image floutée */
         .blur-up {
-            width: 100vw;
+            width: 100vw;    max-width: 700px;
             height: auto;
             object-fit: contain;
             filter: blur(10px);
-            transition: filter 0.5s ease;
+            transition: filter 0.1s ease;
             display: block;
         }
 
@@ -59,7 +59,7 @@
         <source srcset="images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.webp" type="image/webp">
         <img
             class="blur-up"
-            src="images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026-low.jpg"
+            src="images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.jpg"
             alt="Affiche du festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux à la Ferme en Coton à Auch (Gers). Événement familial, local et bio."
             id="blurImage"
             loading="lazy"

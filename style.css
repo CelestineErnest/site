@@ -10,9 +10,15 @@ body {
     background-color: #F9F0C0;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+}
+
 /* Style pour l'image */
 img {
     width: 100%;
+    max-width: 700px;
     height: auto;
     display: block;
 }
