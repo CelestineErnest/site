@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Balises SEO -->
-    <title>Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch | Les Agrobatiques</title>
+    <title>Les Agrobatiques | Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch</title>
     <meta name="description" content="Découvrez le festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux au cœur de la Ferme en Coton à Auch (Gers). Un événement familial, local et bio à ne pas manquer !">
 
     <!-- Balises Open Graph (pour les réseaux sociaux) -->
-    <meta property="og:title" content="Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch | Les Agrobatiques">
+    <meta property="og:title" content="Les Agrobatiques | Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch">
     <meta property="og:description" content="Découvrez le festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux au cœur de la Ferme en Coton à Auch (Gers).">
     <meta property="og:image" content="https://lesagrobatiques.fr/images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.jpg">
     <meta property="og:url" content="https://lesagrobatiques.fr">
@@ -18,7 +18,7 @@
 
     <!-- Balises pour Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch | Les Agrobatiques">
+    <meta name="twitter:title" content="Les Agrobatiques | Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch">
     <meta name="twitter:description" content="Découvrez le festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux au cœur de la Ferme en Coton à Auch (Gers).">
     <meta name="twitter:image" content="https://lesagrobatiques.fr/images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.jpg">
 
@@ -28,24 +28,24 @@
     <!-- Lien vers le CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Style pour l'effet Blur-Up -->
+    <!-- Style pour l'effet Blur-Up et le scroll -->
     <style>
         /* Supprime les marges et le padding par défaut */
         body, html {
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: auto;
             width: 100vw;
-            overflow: hidden;
         }
 
         /* Style pour l'image floutée */
         .blur-up {
             width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             filter: blur(10px);
             transition: filter 0.5s ease;
+            display: block;
         }
 
         .blur-up.loaded {
@@ -72,13 +72,14 @@
         alt="Affiche du festival Les Agrobatiques"
         id="hdImage"
         style="display: none;"
-        onload="document.getElementById('blurImage').classList.add('loaded');"
+        onload="document.getElementById('blurImage').src = this.src; document.getElementById('blurImage').classList.add('loaded');"
     >
 
     <script>
         // Remplace l'image floutée par l'image HD une fois chargée
         document.getElementById('hdImage').addEventListener('load', function() {
             document.getElementById('blurImage').src = this.src;
+            document.getElementById('blurImage').classList.add('loaded');
         });
     </script>
 </body>

@@ -1,16 +1,18 @@
 /* Supprime les marges et le padding par défaut */
-body, html {
+html,
+body {
     margin: 0;
     padding: 0;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    width: 100vw;  /* Prend toute la largeur de la fenêtre */
-    overflow: hidden; /* Empêche les barres de défilement */
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #F9F0C0;
 }
 
 /* Style pour l'image */
 img {
-    width: 100vw; /* Prend toute la largeur de la fenêtre */
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
-    object-fit: cover; /* Remplit tout l'espace (peut rogner l'image si nécessaire) */
-    display: block; /* Supprime l'espace en dessous de l'image */
+    width: 100%;
+    height: auto;
+    display: block;
 }
