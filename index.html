@@ -6,15 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Balises SEO -->
-    <title>Les Agrobatiques | Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch</title>
+    <title>Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch | Les Agrobatiques</title>
     <meta name="description" content="Découvrez le festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux au cœur de la Ferme en Coton à Auch (Gers). Un événement familial, local et bio à ne pas manquer !">
 
     <!-- Balises Open Graph (pour les réseaux sociaux) -->
-    <meta property="og:title" content="Les Agrobatiques | Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch">
+    <meta property="og:title" content="Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch | Les Agrobatiques">
     <meta property="og:description" content="Découvrez le festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux au cœur de la Ferme en Coton à Auch (Gers).">
     <meta property="og:image" content="https://lesagrobatiques.fr/images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.jpg">
     <meta property="og:url" content="https://lesagrobatiques.fr">
     <meta property="og:type" content="website">
+
+    <!-- Balises pour Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Festival de cirque et bonnes assiettes à la Ferme en Coton à Auch | Les Agrobatiques">
+    <meta name="twitter:description" content="Découvrez le festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux au cœur de la Ferme en Coton à Auch (Gers).">
+    <meta name="twitter:image" content="https://lesagrobatiques.fr/images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.jpg">
 
     <!-- Balise pour le référencement local -->
     <meta name="keywords" content="festival cirque, ferme en coton, les racines en coton, Gers, cirque actuel, local, bio, familial, concert, sortie familiale, septembre, week-end, culture, activité culturelle, écologie, exposition, conférence, enfants, sortie enfants, nourriture, repas convivial, fête de village, Auch, Gers, Preignan, poulet, ferme, cochon, agriculture, agroforesterie">
@@ -22,13 +28,58 @@
     <!-- Lien vers le CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Style pour l'effet Blur-Up -->
+    <style>
+        /* Supprime les marges et le padding par défaut */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        /* Style pour l'image floutée */
+        .blur-up {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            filter: blur(10px);
+            transition: filter 0.5s ease;
+        }
+
+        .blur-up.loaded {
+            filter: blur(0px);
+        }
+    </style>
 </head>
 <body>
-    <!-- Image responsive -->
+    <!-- Image avec format WebP + fallback JPG -->
+    <picture>
+        <source srcset="images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.webp" type="image/webp">
+        <img
+            class="blur-up"
+            src="images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026-low.jpg"
+            alt="Affiche du festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux à la Ferme en Coton à Auch (Gers). Événement familial, local et bio."
+            id="blurImage"
+            loading="lazy"
+        >
+    </picture>
+
+    <!-- Image HD (chargée en arrière-plan) -->
     <img
         src="images/les-agrobatiques-festival-cirque-ferme-en-coton-auch-gers-2026.jpg"
-        alt="Affiche du festival Les Agrobatiques : cirque, spectacles, musique et repas conviviaux à la Ferme en Coton à Auch (Gers). Événement familial, local et bio."
-        loading="lazy"
+        alt="Affiche du festival Les Agrobatiques"
+        id="hdImage"
+        style="display: none;"
+        onload="document.getElementById('blurImage').classList.add('loaded');"
     >
+
+    <script>
+        // Remplace l'image floutée par l'image HD une fois chargée
+        document.getElementById('hdImage').addEventListener('load', function() {
+            document.getElementById('blurImage').src = this.src;
+        });
+    </script>
 </body>
 </html>
